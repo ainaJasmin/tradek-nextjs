@@ -10,7 +10,6 @@
 }
 
 .options-settings-container{
-
     display: flex;
     flex-direction: row;
     position: absolute;
@@ -47,7 +46,9 @@
     border-left: solid #fff 0.1rem;
     padding-left: 2rem;
     box-sizing: border-box;
-    display: flex;
+    display: block;
+    flex-direction: column;
+    flex: 1;
     
     
 }
