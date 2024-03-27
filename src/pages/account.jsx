@@ -4,37 +4,48 @@ import aStyles from "../styles/account.module.css";
 import Header from "../components/header.jsx";
 import Pinfo from "../components/pinfo";
 import Wallet from "../components/wallet";
+
 import { useState, useEffect } from "react";
 import {firestore} from "../app/db.js";
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, getDocs, query, where } from 'firebase/firestore';
 
 
-
-async function getData(){
-    try{
-        const result = await getDocs(collection(firestore, "User Info"));
-        result.forEach((doc) => {
-            console.log("Document ID:", doc.id);
-            const data = doc.data();
-            Object.entries(data).forEach(([key, value]) => {
-                console.log(`${key}:`, value);
-            });
-        });
-    } 
-    catch (error) {
-        console.error("Error getting documents: ", error);
-  }
-}
-
+const email = "new@email";
 
 export default function Account() {
     const [activeSetting, setActiveSetting] = useState("pinfo");
+    const [data, setData] = useState('null');
+    
+
+    useEffect(() => {
+        // Fetch data asynchronously
+        async function getData() {
+            try {
+                const q = query(collection(firestore, "User Info"), where('email', '==', email));
+                const result = await getDocs(q);
+                if (result.empty) {
+                    console.log("No results");
+                    setData(null); // Update data state
+                } else {
+                    const docID = result.docs[0].id;
+                    const userData = result.docs[0].data();
+                    const fullSet = {...userData, docID:docID };  
+                    setData(fullSet); // Update data state
+                }
+            } catch (error) {
+                console.error("Error getting documents: ", error);
+            }
+        }
+        getData(); // Call fetchData when component mounts
+    }, []); // Empty dependency array ensures useEffect runs once on component mount
+    
     const renderSetting = () => {
+
         switch(activeSetting){
             case "pinfo":
-                return <Pinfo/>;
+                return <Pinfo data={data}/>;
             case "wallet":
-                return <Wallet />;
+                return <Wallet data={data}/>;
             case "portfolio":
                 return  `Portfolio`;
             default:
@@ -42,7 +53,7 @@ export default function Account() {
 
         }
     }
-    getData();
+    
     return (
         <>
         <Header/>
