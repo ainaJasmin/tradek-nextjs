@@ -4,29 +4,37 @@ import {firestore} from "../app/db.js";
 import '../styles/popup.css';
 
 
-async function changeSubmit(option, dbData, input){
+async function changeSubmit(option, dbData, input, setData, setInputValue){
         
     
     try{
         const dbDoc = doc(firestore, 'User Info', dbData.docID)
-            
+        const dummy = {...dbData}
         if  (input != ""){  
             switch (option.toLowerCase()){
                 case "email":
                     await updateDoc(dbDoc, {"email": input}); 
+                    dummy.email = input;
+                    setData(dummy)
                     console.log("Email changed to: ",input);
                     break;
                 case "username":
                     await updateDoc(dbDoc, {"username": input}); 
+                    dummy.username = input;
+                    console.log(dummy)
+                    setData(dummy)
                     console.log("Username changed to: ",input);
                     break;
                 case "password":
                     await updateDoc(dbDoc, {"password": input}); 
+                    dummy.password = input;
+                    setData(dummy)
                     console.log("Password changed to: ",input);
                     break;
                 default:
                     return null;
                 }
+                setInputValue("")
 
             } else {
                 alert('Please make sure all fields are filled out correctly!')
@@ -37,7 +45,7 @@ async function changeSubmit(option, dbData, input){
 
 
 export default function Popup(props){
-    const [pop, setPopup] = useState(false);
+    const [pop, setPopup] = useState(false); 
     const [option, setOption] = useState('null');
     const [placeholder, setPlaceholder] = useState('');
     const [inputType, setInputType] = useState('');
@@ -93,7 +101,7 @@ export default function Popup(props){
                                     <input type={inputType} value={inputValue} onChange={handleChange} placeholder={placeholder}/>
                                 </div>
                                 <div className="submitbtn-container">
-                                    <button id="submit" onClick={() => changeSubmit(option, props.data, inputValue)}>Submit</button>
+                                    <button id="submit" onClick={() => {changeSubmit(option, props.data, inputValue, props.setData, setInputValue); togglePopup()}}>Submit</button>
                                 </div>
                             </div>
                         </div>     

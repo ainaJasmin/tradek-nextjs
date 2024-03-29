@@ -43,9 +43,9 @@ export default function Account() {
 
         switch(activeSetting){
             case "pinfo":
-                return <Pinfo data={data}/>;
+                return <Pinfo data={data} setData={setData}/>;
             case "wallet":
-                return <Wallet data={data}/>;
+                return <Wallet data={data} setData={setData}/>;
             case "portfolio":
                 return  `Portfolio`;
             default:

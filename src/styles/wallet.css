@@ -5,3 +5,7 @@
 #dep-btn, #with-btn{
     margin-right: 2%;
 }
+
+.wallet-actions{
+    display: flex;
+}

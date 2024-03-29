@@ -2,6 +2,8 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+Run npm install and npm install firebase
+
 First, run the development server:
 
 ```bash
