@@ -1,0 +1,45 @@
+.Homepage {
+    width: 1440px;
+    height: 1024px;
+    position: relative;
+    background: #161925;
+    color: white;
+  }
+  
+  .HeaderHomePage {
+    width: 1338px;
+    height: 57px;
+    left: 52px;
+    top: 26px;
+    position: absolute;
+    color: white;
+  }
+
+  .horizontalLine {
+    color: white;
+    background-color: white;
+    height: 1px;
+    border: none;
+  }
+  
+  .TradekTitle {
+    height: 57px;
+    color: #ffffff;
+    font-size: 48px;
+    font-family: 'Radio Canada';
+    font-weight: 400;
+  }
+
+  .backImg{
+    background-image: url('./cryptoBackg.png');
+    background-size: cover;
+    background-position: center;
+    width: 600px;
+    height: 600px;
+    
+  }
+  
+  /* Add similar styles for other classes */
+  
+  /* Define styles for other classes */
+  
