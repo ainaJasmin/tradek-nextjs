@@ -1,5 +1,3 @@
-
-
 body.active-pop {
     overflow-y: hidden;
 }
@@ -84,6 +82,16 @@ body.active-pop {
     
 }
 
+.-error{
+    margin-bottom: 0%;
+    
+}
+
+.error{
+    margin-bottom: 3%;
+    font-size: 0.8rem;
+    color: red;
+}
 
 
 

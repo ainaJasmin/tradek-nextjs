@@ -10,7 +10,7 @@ import {firestore} from "../app/db.js";
 import { collection, getDocs, query, where } from 'firebase/firestore';
 
 
-const email = "new@email";
+const email = "user@email";
 
 export default function Account() {
     const [activeSetting, setActiveSetting] = useState("pinfo");
@@ -46,8 +46,12 @@ export default function Account() {
                 return <Pinfo data={data} setData={setData}/>;
             case "wallet":
                 return <Wallet data={data} setData={setData}/>;
+            case "transHistory":
+                    return  `Transaction History`;
             case "portfolio":
                 return  `Portfolio`;
+            case "management":
+                return `management`;
             default:
                 return null
 
@@ -56,14 +60,16 @@ export default function Account() {
     
     return (
         <>
-        <Header/>
+        <Header />
         <main className={aStyles.main}>
             <div className={aStyles['options-settings-container']}>
                 <div className={aStyles['account-options']}>
                     <ul>
                         <li onClick={() => setActiveSetting("pinfo")}>Personal Information</li>
                         <li onClick={() => setActiveSetting("wallet")}>Wallet</li>
+                        <li onClick={() => setActiveSetting("transHistory")}>Transaction History</li>
                         <li onClick={() => setActiveSetting("portfolio")}>Portfolio</li>
+                        {data.admin && <li onClick={() => setActiveSetting("management")}>Management</li>}
                     </ul>
                 </div>
                 <div className={aStyles.settings}>

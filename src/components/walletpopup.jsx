@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import { doc, updateDoc} from 'firebase/firestore';
 import {firestore} from "../app/db.js";
 import { collection, getDocs, getDoc, query, where } from 'firebase/firestore';
-import '../styles/popup.css';
+import '../styles/pinfopopup.css';
 import '../styles/wpopup.css';
 
 
@@ -109,7 +109,6 @@ export default function Popup(props){
     const handleRChange = (e) => {
         setRecipient(e.target.value);
     }
-
 
     const togglePopup = () =>{
         setPopup(p => !p);

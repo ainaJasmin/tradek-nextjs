@@ -1,4 +1,4 @@
-.email, .username, .password{
+.name, .email, .username, .password, .upload-submission{
     display: flex;
     justify-content: space-between;
     /* align-items: center; */
@@ -20,4 +20,16 @@ button{
 button:hover{
     cursor: pointer;
     background-color: hsl(228, 25%, 27%);
+}
+
+.error{
+    margin-bottom: 3%;
+    font-size: 0.8rem;
+    color: red;
+}
+
+.success{
+    margin-bottom: 3%;
+    font-size: 0.8rem;
+    color: green;
 }

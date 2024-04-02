@@ -1,14 +1,19 @@
 import styles from "../styles/pinfo.css";
 import { useEffect, useState } from "react";
 import Popup from "./pinfopopup";
+import UploadFile from "./uploadFile";
 
 
 
 
 export default function Pinfo(props){
-    
+
+    const [uploaded, setUploaded] = useState(null);
+
+
     return(
         <>
+            <div className="name">Name: {props.data.firstName} {props.data.lastName}</div>
             <div className="email">
                 <p>Email: {props.data.email}</p> 
                 {/* <button onClick={() => handleChangeInfo("changeEmail")}>Change email</button> */}
@@ -26,6 +31,14 @@ export default function Pinfo(props){
                 {/* <button>Change Password</button> */}
                 <Popup option="password" data={props.data} setData={props.setData} />
             </div>
+
+            
+                {props.data.idURL == "" ?   <UploadFile data={props.data} uploaded={uploaded} setUploaded={setUploaded}/>
+                                            : ""}
+                {((props.data.idURL !=="") && props.data.approved) && <div className="approved"> Your account is already approved &#x2713;</div>}
+                {((props.data.idURL!=="") && !props.data.approved) && <div className="awaiting">Your account is awaiting approval</div>}
+                
+            
 
         
         </>
