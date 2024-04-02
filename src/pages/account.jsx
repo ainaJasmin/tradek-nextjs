@@ -4,13 +4,12 @@ import aStyles from "../styles/account.module.css";
 import Header from "../components/header.jsx";
 import Pinfo from "../components/pinfo";
 import Wallet from "../components/wallet";
-
 import { useState, useEffect } from "react";
 import {firestore} from "../app/db.js";
 import { collection, getDocs, query, where } from 'firebase/firestore';
 
 
-const email = "new@email";
+const email = "user@email";
 
 export default function Account() {
     const [activeSetting, setActiveSetting] = useState("pinfo");
