@@ -1,10 +1,10 @@
 import styles from "../styles/homePage.module.css"; 
-import Header from "../components/header.jsx";
+// import Header from "../components/header.jsx";
 
 function HomePage() {
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
       <div className={styles.Homepage}>
 
         {/* header */}
