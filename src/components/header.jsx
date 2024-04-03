@@ -3,6 +3,7 @@ import {useAuthState} from 'react-firebase-hooks/auth'
 import {auth} from '@/app/db.js'
 
 const Header = () => {
+    const [user] = useAuthState(auth);
     return(
         <header>
             <div className="header-container">
