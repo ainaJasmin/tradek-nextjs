@@ -51,7 +51,7 @@ const IndexPage = () => {
                             <option value="LTC">Litecoin (LTC)</option>
                         </select>
                         <select name="toCurrency" id="toCurrency" className={styles.toCurrency}>
-                            <option value="USD" disabled>USD - US Dollar</option>
+                            <option value="USD">USD - US Dollar</option>
                             <option value="BTC">Bitcoin (BTC)</option>
                             <option value="ETH">Ethereum (ETH)</option>
                             <option value="XRP">XRP (XRP)</option>
