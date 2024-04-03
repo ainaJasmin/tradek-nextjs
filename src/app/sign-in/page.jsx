@@ -23,6 +23,12 @@ const SignIn = () => {
     }
   };
 
+  const handleSignUp = () => {
+    // Redirect to sign-in page using Next.js router
+    window.location.href = '/sign-up';
+  };
+
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-900">
       <div className="bg-gray-800 p-10 rounded-lg shadow-xl w-96">
@@ -46,6 +52,9 @@ const SignIn = () => {
           className="w-full p-3 bg-indigo-600 rounded text-white hover:bg-indigo-500"
         >
           Sign In
+        </button>
+        <button onClick={handleSignUp} className="w-full p-3 mt-2 bg-gray-600 rounded text-white hover:bg-gray-700">
+          Sign Up
         </button>
       </div>
     </div>
