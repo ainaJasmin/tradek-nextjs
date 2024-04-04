@@ -1,4 +1,4 @@
-import styles from "../app/page.module.css";
+// import styles from "../app/page.module.css";
 import gstyles from "../app/globals.css";
 import aStyles from "../styles/account.module.css";
 import Header from "../components/header.jsx";

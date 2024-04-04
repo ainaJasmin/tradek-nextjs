@@ -7,6 +7,7 @@ import "../styles/management.css";
 
 
 function Management(props){
+     
     const [waitingUsers, setWaitingUsers] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [currentDOB, setCurrentDOB] = useState(null);
