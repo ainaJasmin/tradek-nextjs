@@ -2,7 +2,12 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-Run npm install and npm install firebase
+Run these commands
+npm install
+npm install react-firebase-hooks
+npm install axios
+npm install firebase
+npm install --save react-chartjs-2 chart.js
 
 First, run the development server:
 
