@@ -4,15 +4,16 @@ import aStyles from "../styles/account.module.css";
 import Header from "../components/header.jsx";
 import Pinfo from "../components/pinfo";
 import Wallet from "../components/wallet";
-
+import Management from "../components/management.jsx";
 import { useState, useEffect } from "react";
 import {firestore} from "../app/db.js";
 import { collection, getDocs, query, where } from 'firebase/firestore';
 
 
-const email = "user@email";
+const email = "admin@email";
 
 export default function Account() {
+
     const [activeSetting, setActiveSetting] = useState("pinfo");
     const [data, setData] = useState('null');
     
@@ -51,7 +52,7 @@ export default function Account() {
             case "portfolio":
                 return  `Portfolio`;
             case "management":
-                return `management`;
+                return <Management data={data} setData={setData}/>;
             default:
                 return null
 
@@ -66,9 +67,14 @@ export default function Account() {
                 <div className={aStyles['account-options']}>
                     <ul>
                         <li onClick={() => setActiveSetting("pinfo")}>Personal Information</li>
-                        <li onClick={() => setActiveSetting("wallet")}>Wallet</li>
+                        {/* <li onClick={() => setActiveSetting("wallet")}>Wallet</li>
                         <li onClick={() => setActiveSetting("transHistory")}>Transaction History</li>
-                        <li onClick={() => setActiveSetting("portfolio")}>Portfolio</li>
+                        <li onClick={() => setActiveSetting("portfolio")}>Portfolio</li> */}
+                        {!data.admin && <>
+                                            <li onClick={() => setActiveSetting("wallet")}>Wallet</li>
+                                            <li onClick={() => setActiveSetting("transHistory")}>Transaction History</li>
+                                            <li onClick={() => setActiveSetting("portfolio")}>Portfolio</li>
+                                        </>}
                         {data.admin && <li onClick={() => setActiveSetting("management")}>Management</li>}
                     </ul>
                 </div>

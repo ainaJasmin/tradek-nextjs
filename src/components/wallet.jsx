@@ -22,9 +22,9 @@ export default function Wallet(props) {
                 <div className="transfer-container">
                     <Popup option="transfer" data={props.data} setData={props.setData}/>
                 </div>
-                <div className="convert-container">
+                {/* <div className="convert-container">
                     <Popup option="convert" data={props.data} setData={props.setData}/>
-                </div>
+                </div> */}
             </div>
         </div>
         
