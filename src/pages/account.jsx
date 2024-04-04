@@ -4,6 +4,8 @@ import aStyles from "../styles/account.module.css";
 import Header from "../components/header.jsx";
 import Pinfo from "../components/pinfo";
 import Wallet from "../components/wallet";
+import Market from "../components/market";
+
 import { useState, useEffect } from "react";
 import {firestore} from "../app/db.js";
 import { collection, getDocs, query, where } from 'firebase/firestore';
@@ -45,6 +47,8 @@ export default function Account() {
                 return <Pinfo data={data} setData={setData}/>;
             case "wallet":
                 return <Wallet data={data} setData={setData}/>;
+            case "market":
+                return <Market data={data} setData={setData}/>;
             case "portfolio":
                 return  `Portfolio`;
             default:
@@ -63,6 +67,7 @@ export default function Account() {
                         <li onClick={() => setActiveSetting("pinfo")}>Personal Information</li>
                         <li onClick={() => setActiveSetting("wallet")}>Wallet</li>
                         <li onClick={() => setActiveSetting("portfolio")}>Portfolio</li>
+                        <li onClick={() => setActiveSetting("market")}>Market</li>
                     </ul>
                 </div>
                 <div className={aStyles.settings}>
